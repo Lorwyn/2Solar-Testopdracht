@@ -8,6 +8,37 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <div id="container">
-    {{person.first_name}} {{person.last_name}}
+    <ion-item>
+      <ion-label>ID:</ion-label>
+      <ion-label>{{person.person_id}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Voornaam:</ion-label>
+      <ion-label>{{person.first_name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Achternaam:</ion-label>
+      <ion-label>{{person.last_name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gebruikersnaam:</ion-label>
+      <ion-label>{{person.current_user_name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Adres:</ion-label>
+      <ion-label>{{person.address}} {{person.number}} {{person.postcode}} {{person.city}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefoonnummer:</ion-label>
+      <ion-label>{{person.telephone}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Status:</ion-label>
+      <ion-label>{{person.original_status}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Afspraak:</ion-label>
+      <ion-label>{{person.request_status}}</ion-label>
+    </ion-item>
   </div>
 </ion-content>

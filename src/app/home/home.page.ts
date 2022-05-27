@@ -33,4 +33,8 @@ export class HomePage {
       this.searchedList = this.personList;
     }
   }
+
+  filterPeople() {
+    
+  }
 }
