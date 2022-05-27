@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-searchbar (ionChange)="filterPeople($event)" debounce="1000">
+    <ion-searchbar (ionChange)="searchPeople($event)" debounce="1000">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
   <div id="container">
     <ion-list>
-      <ion-item *ngFor="let person of filteredList | keyvalue">
+      <ion-item routerLink="/user/{{person.value.request_id}}" *ngFor="let person of searchedList | keyvalue">
         <ion-label>{{person.value.first_name}}  {{person.value.last_name}}</ion-label>
       </ion-item>
     </ion-list>

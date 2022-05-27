@@ -19,7 +19,7 @@ export class PeopleService {
 
   private apiUrl = "https://app.2solar.nl/api/person";
 
-  getPerson(id: string){
+  getPerson(id: string) {
     const requestUrl = `${this.apiUrl}/${id}`;
     return this.http.get<object>(requestUrl, httpOptions);
   }

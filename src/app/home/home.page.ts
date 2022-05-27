@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PeopleService } from '../people.service';
 
 @Component({
@@ -8,30 +9,28 @@ import { PeopleService } from '../people.service';
 })
 export class HomePage {
 
-  private personList: Object = [];
-  private filteredList: Object = [];
+  personList: Array<Object> = [];
+  searchedList: Array<Object> = [];
 
-  constructor(private peopleService: PeopleService) {this.getPeople()}
+  constructor(private peopleService: PeopleService, private router: Router) {}
 
-  getPeople() {
+  ngOnInit() {
     this.peopleService.getPerson("search/?date_created_from=1-01-01")
     .subscribe(data => {
-      this.personList = data;
-      this.filteredList = this.personList;
+      this.personList = Object.keys(data).map(key => data[key])
+      this.searchedList = Object.keys(data).map(key => data[key])
     });
   }
 
-  // Alternatief zou zijn om niet per query via de API te zoeken, maar om te zoeken in de complete dataset
-  // om zo onnodige API calls te voorkomen
-  filterPeople(event) {
+  searchPeople(event) {
     if(event.target.value != "") {
       this.peopleService.getPerson(`search/?search=${event.target.value}`)
       .subscribe(data => {
-        this.filteredList = data
+        this.searchedList = Object.keys(data).map(key => data[key])
       });
     }
     else {
-      this.filteredList = this.personList;
+      this.searchedList = this.personList;
     }
   }
 }
