@@ -1,0 +1,24 @@
+<ion-item>
+  Status:
+</ion-item>
+<ion-item>
+  <ion-label>Particulier</ion-label>
+  <ion-toggle [(ngModel)]="particulier" [checked]="particulier" (ionChange)="particulierChange($event.detail)"></ion-toggle>
+</ion-item>
+<ion-item>
+  <ion-label>Zakelijk</ion-label>
+  <ion-toggle [(ngModel)]="zakelijk" [checked]="zakelijk" (ionChange)="zakelijkChange($event.detail)"></ion-toggle>
+</ion-item>
+<ion-item>
+  <ion-label>Ingepland</ion-label>
+  <ion-toggle [(ngModel)]="ingepland" [checked]="ingepland" (ionChange)="ingeplandChange($event.detail)"></ion-toggle>
+</ion-item>
+<ion-item> 
+  <ion-label>Plannen</ion-label>
+  <ion-toggle [(ngModel)]="plannen" [checked]="plannen" (ionChange)="plannenChange($event.detail)"></ion-toggle>
+</ion-item>
+<ion-item>
+  <ion-label>Geinstalleerd</ion-label>
+  <ion-toggle [(ngModel)]="geinstalleerd" [checked]="geinstalleerd" (ionChange)="geinstalleerdChange($event.detail)"></ion-toggle>
+</ion-item>
+<ion-button (click)="applyFilter()">Activeer filter</ion-button>
